@@ -79,6 +79,8 @@ $(function () {
                 // console.log(res.token);
                 // 跳转到首页
                 location.href = '/index.html';
+                // 重置表单
+                $('#form_login')[0].reset();
             }
         })
     });
