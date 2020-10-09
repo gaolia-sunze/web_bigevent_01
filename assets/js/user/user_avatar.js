@@ -49,8 +49,8 @@ $(function () {
                 height: 100
             })
             .toDataURL('image/png') // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
-            // console.log(dataURL);
-            console.log(typeof dataURL);
+        // console.log(dataURL);
+        console.log(typeof dataURL);
         //2，发送ajax,上传到服务器
         $.ajax({
             method: 'POST',
@@ -69,4 +69,30 @@ $(function () {
             }
         })
     });
+
+
+
+    // 4,设置头像默认值
+    // 渲染默认头像
+    getUserInfo();
+
+    function getUserInfo() {
+        $.ajax({
+            method: "GET",
+            url: "/my/userinfo",
+            success: function (res) {
+                // console.log(res);
+                if (res.status !== 0) {
+                    //   不成功返回的信息
+                    return layer.msg(res.message);
+                }
+                // 请求成功，渲染用户头像信息
+                $image
+                    .cropper('destroy') // 销毁旧的裁剪区域
+                    .attr('src', res.data.user_pic) // 重新设置图片路径
+                    .cropper(options) // 重新初始化裁剪区域
+            },
+        });
+    };
+
 });
