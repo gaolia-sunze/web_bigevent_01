@@ -15,7 +15,7 @@ $.ajaxPrefilter(function (options) {
     // 拦截所有响应，判断身份认证信息
     // 无论成功失败，都会触发complete方法
     options.complete = function (res) {
-        console.log(res);
+        // console.log(res);
         // 判断，如果是认证失败，就返回登录页面
         if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
 
