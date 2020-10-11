@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    background-color: #f2f3f5;
+    padding: 15px;
+}
+
+.layui-card-header {
+    display: flex;
+    /* 设置主轴两边对齐 */
+    justify-content: space-between;
+    /* 设置侧轴对齐 */
+    align-items: center;
+}
+
+#form-add,
+#form-edit {
+    padding-top: 20px;
+    padding-right: 30px;
+}

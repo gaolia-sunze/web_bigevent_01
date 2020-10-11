@@ -50,18 +50,22 @@ $(function () {
             })
             .toDataURL('image/png') // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
         // console.log(dataURL);
-        console.log(typeof dataURL);
+
+        // console.log(typeof dataURL);
+
+        // console.log(typeof dataURL);
+
         //2，发送ajax,上传到服务器
         $.ajax({
             method: 'POST',
             url: '/my/update/avatar',
             data: {
-                avatar: dataURL
+                avatar: dataURL,
             },
             success: function (res) {
-                console.log(res);
+                // console.log(res);
                 if (res.status !== 0) {
-                    return layui.layer.msg('头像上传失败！');
+                    return layui.layer.msg(res.message);
                 }
                 layui.layer.msg('头像上传成功！');
                 // 获取用户基本信息，渲染用户头像
@@ -72,8 +76,11 @@ $(function () {
 
 
 
+
     // 4,设置头像默认值
     // 渲染默认头像
+
+
     getUserInfo();
 
     function getUserInfo() {
@@ -91,6 +98,7 @@ $(function () {
                     .cropper('destroy') // 销毁旧的裁剪区域
                     .attr('src', res.data.user_pic) // 重新设置图片路径
                     .cropper(options) // 重新初始化裁剪区域
+
             },
         });
     };
