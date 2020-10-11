@@ -58,7 +58,7 @@ $(function () {
                 // 调用父浏览器的getUserInfo()获取用户信息的方法
                 window.parent.getUserInfo();
                 // 重置表单
-                $('.layui-form')[0].reset();
+                // $('.layui-form')[0].reset();
 
             }
         })

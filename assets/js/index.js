@@ -56,7 +56,7 @@ function getUserInfo() {
         //     }
         // }
     });
-}
+};
 
 // 封装渲染用户头像信息函数
 function renderAvatar(user) {
